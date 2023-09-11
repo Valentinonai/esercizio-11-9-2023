@@ -13,6 +13,7 @@ class CommentArea extends Component {
       message: "",
     },
     select: false,
+    addedComment: false,
   };
   componentDidMount = async () => {
     try {
@@ -55,7 +56,52 @@ class CommentArea extends Component {
       this.setState({ working: false });
     }
   };
-
+  addedComment = () => {
+    this.setState({ addedComment: !this.state.addedComment });
+  };
+  componentDidUpdate = async (prevprops, prevstate) => {
+    if (prevstate.addedComment !== this.state.addedComment) {
+      try {
+        const risp = await fetch(`https://striveschool-api.herokuapp.com/api/comments`, {
+          // ${this.props.iD}
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGY5YjRlMThkM2Q0OTAwMTRjZmQ3ZDQiLCJpYXQiOjE2OTQwODYzNjksImV4cCI6MTY5NTI5NTk2OX0.UMzNavOw7SiIyoEXvdOL_L1zqNhivjz340RkCbm8TtM",
+          },
+        });
+        if (risp.ok) {
+          const libro = await risp.json();
+          console.log(libro);
+          this.setState({
+            review: libro,
+            alert: {
+              stato: true,
+              variant: "info",
+              message: "Caricamento Completato",
+            },
+          });
+          setTimeout(() => {
+            this.setState({ alert: { stato: false, variant: "info", message: "" } });
+          }, 2500);
+        } else {
+          this.setState({
+            alert: {
+              stato: true,
+              variant: "danger",
+              message: `Errore:${risp.status}`,
+            },
+          });
+          setTimeout(() => {
+            this.setState({ alert: { stato: false, variant: "danger", message: "" } });
+          }, 2500);
+        }
+      } catch (error) {
+        console.log(error);
+      } finally {
+        this.setState({ working: false });
+      }
+    }
+  };
   render() {
     return (
       <>
@@ -70,7 +116,7 @@ class CommentArea extends Component {
               select={this.state.select}
               iD={this.props.iD}
             />
-            <AddComment iD={this.props.iD} />
+            <AddComment iD={this.props.iD} addedComment={this.addedComment} />
           </>
         )}
       </>
