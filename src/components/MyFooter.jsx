@@ -2,7 +2,7 @@ import { Col, Container, Row } from "react-bootstrap";
 
 const MyFooter = () => {
   return (
-    <footer className="bg-dark" style={{ borderTop: "1px solid gray" }}>
+    <footer className="bg-dark" style={{ borderTop: "1px solid gray", position: "relative", zIndex: "4" }}>
       <Container fluid="md" className="bg-dark text-secondary py-4">
         <Row className="justify-content-center bg-dark align-items-start">
           <Col xs={3} md={2}>

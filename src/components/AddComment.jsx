@@ -64,8 +64,9 @@ class AddComment extends Component {
           <>
             {this.state.alert.stato && <Alert variant={this.state.alert.variant}>{this.state.alert.message}</Alert>}
 
-            <Form className="m-1 p-1 border" onSubmit={this.aggiungiCommento}>
-              <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form className="m-1 p-2 border rounded shadow mt-5" onSubmit={this.aggiungiCommento}>
+              <h5>Aggiungi Commento</h5>
+              <Form.Group className="mb-3 mt-3" controlId="formBasicEmail">
                 <Form.Label>Comment</Form.Label>
                 <Form.Control
                   type="text"

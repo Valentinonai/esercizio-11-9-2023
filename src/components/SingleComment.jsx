@@ -53,7 +53,7 @@ class SingleComment extends Component {
         {this.state.alert.stato && <Alert variant={this.state.alert.variant}>{this.state.alert.message}</Alert>}
 
         <ListGroup.Item className="bg-secondary text-white d-flex justify-content-between">
-          <div>{this.props.comment}</div>
+          <div style={{ wordBreak: "break-word" }}>{this.props.comment}</div>
           <div onClick={this.EliminaCommento}>
             <i className="bi bi-trash3" style={{ cursor: "pointer" }}></i>
           </div>

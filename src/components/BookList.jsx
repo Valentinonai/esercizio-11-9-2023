@@ -19,19 +19,28 @@ class BookList extends Component {
                 elem.title.toUpperCase().includes(this.state.ricerca.toUpperCase())
               ),
             },
-            () => this.setState({ ricerca: "" })
+            () => {
+              this.setState({ ricerca: "", asinSelected: null });
+              this.props.selectBook(false, "", "");
+            }
           )
         : this.setState(
             {
               books: this.state.booksOriginal,
             },
-            () => this.setState({ ricerca: "" })
+            () => {
+              this.setState({ ricerca: "", asinSelected: null });
+              this.props.selectBook(false, "", "");
+            }
           );
     });
   };
   asinSelect = (value) => {
     this.setState({ asinSelected: value });
   };
+  componentDidUpdate(prevprops) {
+    if (prevprops.books !== this.props.books) this.setState({ books: prevprops.books });
+  }
   render() {
     return (
       <Row className="p-5 bg-dark text-secondary gy-3 pt-5 px-4">
@@ -48,11 +57,11 @@ class BookList extends Component {
                     placeholder="Search"
                     className=" mr-sm-2"
                     value={this.state.ricerca}
-                    onChange={(event) => this.setState({ ricerca: event.target.value })}
+                    onChange={(event) => this.setState({ ricerca: event.target.value, asinSelected: null })}
                   />
                 </Col>
                 <Col xs={12} md={4}>
-                  <Button className="mt-3 mt-md-0" type="submit">
+                  <Button className="mt-3 mt-md-0" type="submit" variant="outline-light">
                     Submit
                   </Button>
                 </Col>

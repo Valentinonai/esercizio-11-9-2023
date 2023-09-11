@@ -40,3 +40,10 @@ p {
 .selected {
   border-color: red;
 }
+.CardSingola {
+  transition: transform 0.1s linear;
+}
+.CardSingola:hover {
+  transform: scale(1.2);
+  z-index: 1;
+}

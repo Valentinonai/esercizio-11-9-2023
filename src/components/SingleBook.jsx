@@ -10,11 +10,11 @@ class SingleBook extends Component {
   toggleClass = () => {
     this.state.selected
       ? this.setState({ selected: false, borderColor: "transparent" }, () => {
-          this.props.selectBook(false, "");
+          this.props.selectBook(false, "", "");
           this.props.asinSelect("");
         })
       : this.setState({ selected: true, borderColor: "red" }, () => {
-          this.props.selectBook(true, this.props.book.asin);
+          this.props.selectBook(true, this.props.book.asin, this.props.book.title);
           this.props.asinSelect(this.props.book.asin);
         });
   };
@@ -38,11 +38,12 @@ class SingleBook extends Component {
             boxShadow: "0 0 2px 2px gray",
             borderColor: [this.state.borderColor],
           }}
+          className="CardSingola"
         >
           <Card.Img
             variant="top"
             src={this.props.book.img}
-            style={{ borderRadius: "0 0 5px 5px", boxShadow: "0 0 2px 2px black" }}
+            style={{ borderRadius: "0 0 5px 5px", boxShadow: "0 0 2px 2px black", cursor: "pointer" }}
             onClick={this.toggleClass}
           />
           <Card.Body>
