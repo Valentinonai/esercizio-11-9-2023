@@ -34,26 +34,30 @@ class BookList extends Component {
   };
   render() {
     return (
-      <Row className="p-5 bg-dark text-secondary gy-3 pt-0 ">
-        <div className="d-flex justify-content-between align-items-center mb-3">
-          <h2 className="display-1">{this.props.books[0].category.toUpperCase()}</h2>
-          <Form onSubmit={this.filterBookList}>
-            <Row>
-              <Col xs="auto">
-                <Form.Control
-                  type="text"
-                  placeholder="Search"
-                  className=" mr-sm-2"
-                  value={this.state.ricerca}
-                  onChange={(event) => this.setState({ ricerca: event.target.value })}
-                />
-              </Col>
-              <Col xs="auto">
-                <Button type="submit">Submit</Button>
-              </Col>
-            </Row>
-          </Form>
-        </div>
+      <Row className="p-5 bg-dark text-secondary gy-3 pt-5 ">
+        <Row className=" justify-content-between align-items-center mb-3">
+          <Col xs={12} md={6}>
+            <h2 className="display-3 display-md-1">{this.props.books[0].category.toUpperCase()}</h2>
+          </Col>
+          <Col xs={12} md={6}>
+            <Form onSubmit={this.filterBookList}>
+              <Row className="justify-content-md-end">
+                <Col xs={12} md={8}>
+                  <Form.Control
+                    type="text"
+                    placeholder="Search"
+                    className=" mr-sm-2"
+                    value={this.state.ricerca}
+                    onChange={(event) => this.setState({ ricerca: event.target.value })}
+                  />
+                </Col>
+                <Col xs={12} md={4}>
+                  <Button type="submit">Submit</Button>
+                </Col>
+              </Row>
+            </Form>
+          </Col>
+        </Row>
         {this.state.books.length > 0 ? (
           this.state.books[0].category === this.props.books[0].category ? (
             this.state.books.map((elem, index) => (

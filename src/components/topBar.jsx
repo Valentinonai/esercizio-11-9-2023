@@ -10,7 +10,7 @@ class TopBar extends Component {
     return (
       <Navbar
         expand="lg"
-        style={{ backgroundColor: "gray", position: "sticky", top: "0", zIndex: "2" }}
+        style={{ backgroundColor: "gray", position: "fixed", top: "0", left: 0, right: 0, zIndex: "2" }}
         className="px-3 mb-3"
       >
         <Navbar.Brand href="#home" className="text-white fs-3">

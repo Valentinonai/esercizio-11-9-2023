@@ -27,12 +27,12 @@ class App extends Component {
     return (
       <div className="App">
         <TopBar Fn={this.scegli} />
-        <Container fluid>
+        <Container fluid style={{ marginTop: "70px" }}>
           <Row>
-            <Col xs={9}>
+            <Col xs={7} md={9}>
               <BookList books={this.state.books} selectBook={this.selectBook} />
             </Col>
-            <Col xs={3} style={{ position: "fixed", top: "80px", right: 0, zIndex: "1" }}>
+            <Col xs={5} md={3} style={{ position: "fixed", top: "80px", right: 0, zIndex: "1" }}>
               <h2>Comments</h2>
               {this.state.selected.state ? (
                 <CommentArea iD={this.state.selected.iDBookSelected} selectBook={this.selectBook} />
