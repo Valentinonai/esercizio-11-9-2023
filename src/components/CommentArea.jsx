@@ -74,15 +74,7 @@ class CommentArea extends Component {
           console.log(libro);
           this.setState({
             review: libro,
-            alert: {
-              stato: true,
-              variant: "info",
-              message: "Caricamento Completato",
-            },
           });
-          setTimeout(() => {
-            this.setState({ alert: { stato: false, variant: "info", message: "" } });
-          }, 2500);
         } else {
           this.setState({
             alert: {
