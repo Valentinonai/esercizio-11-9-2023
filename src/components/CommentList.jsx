@@ -13,6 +13,7 @@ class CommentList extends Component {
           elementId={elem._id}
           index={index}
           Reload={this.props.Reload}
+          addedComment={this.props.addedComment}
         />
       ));
   }

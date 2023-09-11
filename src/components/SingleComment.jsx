@@ -30,6 +30,7 @@ class SingleComment extends Component {
         setTimeout(() => {
           this.setState({ alert: { stato: false, variant: "success", message: "" } });
         }, 2500);
+        this.props.addedComment();
       } else {
         this.setState({
           alert: {

@@ -115,6 +115,7 @@ class CommentArea extends Component {
               Reload={this.Reload}
               select={this.state.select}
               iD={this.props.iD}
+              addedComment={this.addedComment}
             />
             <AddComment iD={this.props.iD} addedComment={this.addedComment} />
           </>
