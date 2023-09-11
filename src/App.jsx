@@ -32,7 +32,7 @@ class App extends Component {
             <Col xs={9}>
               <BookList books={this.state.books} selectBook={this.selectBook} />
             </Col>
-            <Col xs={3}>
+            <Col xs={3} style={{ position: "fixed", top: "80px", right: 0, zIndex: "3" }}>
               <h2>Comments</h2>
               {this.state.selected.state ? (
                 <CommentArea iD={this.state.selected.iDBookSelected} selectBook={this.selectBook} />
