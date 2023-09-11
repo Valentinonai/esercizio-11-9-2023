@@ -20,7 +20,7 @@ class SingleBook extends Component {
   };
   componentDidUpdate(prevprops) {
     console.log(this.props.oldBookSelected, prevprops.oldBookSelected, this.state.selected);
-    if (this.props.book.asin === prevprops.oldBookSelected && prevprops.oldBookSelected !== null) {
+    if (this.props.book.asin === prevprops.oldBookSelected) {
       this.setState({ selected: false, borderColor: "transparent" });
     }
     if (prevprops.entireBooks !== this.props.entireBooks) {
