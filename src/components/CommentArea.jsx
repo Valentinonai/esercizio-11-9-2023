@@ -13,7 +13,7 @@ class CommentArea extends Component {
       message: "",
     },
     select: false,
-    addedComment: false,
+    addedDeleteComment: false,
   };
   componentDidMount = async () => {
     try {
@@ -56,11 +56,11 @@ class CommentArea extends Component {
       this.setState({ working: false });
     }
   };
-  addedComment = () => {
-    this.setState({ addedComment: !this.state.addedComment });
+  addedDeleteComment = () => {
+    this.setState({ addedDeleteComment: !this.state.addedDeleteComment });
   };
   componentDidUpdate = async (prevprops, prevstate) => {
-    if (prevstate.addedComment !== this.state.addedComment) {
+    if (prevstate.addedDeleteComment !== this.state.addedDeleteComment) {
       try {
         const risp = await fetch(`https://striveschool-api.herokuapp.com/api/comments`, {
           // ${this.props.iD}
@@ -115,9 +115,9 @@ class CommentArea extends Component {
               Reload={this.Reload}
               select={this.state.select}
               iD={this.props.iD}
-              addedComment={this.addedComment}
+              addedDeleteComment={this.addedDeleteComment}
             />
-            <AddComment iD={this.props.iD} addedComment={this.addedComment} />
+            <AddComment iD={this.props.iD} addedDeleteComment={this.addedDeleteComment} />
           </>
         )}
       </>

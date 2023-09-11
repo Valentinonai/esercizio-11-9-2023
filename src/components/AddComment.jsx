@@ -37,7 +37,7 @@ class AddComment extends Component {
         setTimeout(() => {
           this.setState({ alert: { stato: false, variant: "success", message: "" } });
         }, 2500);
-        this.props.addedComment();
+        this.props.addedDeleteComment();
       } else {
         this.setState({
           alert: {
