@@ -34,10 +34,10 @@ class BookList extends Component {
   };
   render() {
     return (
-      <Row className="p-5 bg-dark text-secondary gy-3 pt-5 ">
+      <Row className="p-5 bg-dark text-secondary gy-3 pt-5 px-4">
         <Row className=" justify-content-between align-items-center mb-3">
           <Col xs={12} md={6}>
-            <h2 className="display-3 display-md-1">{this.props.books[0].category.toUpperCase()}</h2>
+            <h2 className="display-2 display-md-1">{this.props.books[0].category.toUpperCase()}</h2>
           </Col>
           <Col xs={12} md={6}>
             <Form onSubmit={this.filterBookList}>
@@ -52,7 +52,9 @@ class BookList extends Component {
                   />
                 </Col>
                 <Col xs={12} md={4}>
-                  <Button type="submit">Submit</Button>
+                  <Button className="mt-3 mt-md-0" type="submit">
+                    Submit
+                  </Button>
                 </Col>
               </Row>
             </Form>
