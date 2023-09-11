@@ -20,15 +20,13 @@ class SingleBook extends Component {
   };
   componentDidUpdate(prevprops) {
     console.log(this.props.oldBookSelected, prevprops.oldBookSelected, this.state.selected);
-    if (
-      this.props.oldBookSelected !== prevprops.oldBookSelected &&
-      this.props.oldBookSelected !== this.props.book.asin &&
-      this.props.oldBookSelected !== null
-    ) {
+    if (this.props.book.asin === prevprops.oldBookSelected && prevprops.oldBookSelected !== null) {
       this.setState({ selected: false, borderColor: "transparent" });
     }
-    if (prevprops.entireBooks !== this.props.entireBooks)
+    if (prevprops.entireBooks !== this.props.entireBooks) {
       this.setState({ selected: false, borderColor: "transparent" });
+      this.props.asinSelect("");
+    }
   }
   render() {
     return (
