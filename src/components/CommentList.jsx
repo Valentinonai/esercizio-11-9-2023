@@ -17,11 +17,8 @@ class CommentList extends Component {
         />
       ));
   }
-  componentDidUpdate(prevprops, prevstate) {
-    if (prevprops.iD !== this.props.iD) {
-      this.creaLista();
-    }
-  }
+  //!Se dovessi fare una fetch ogni volta che seleziono un altro libro dovrei mettere la fetch all'interno di componentdidupdate
+  //!Siccome lavoro su un array di commenti cambia la props dell'ID selezionato e si verifica il render per i nuovi commenti
   render() {
     return <ListGroup>{this.creaLista()}</ListGroup>;
   }
