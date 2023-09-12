@@ -101,14 +101,19 @@ class CommentArea extends Component {
         {!this.state.working && (
           <>
             {this.state.alert.stato && <Alert variant={this.state.alert.variant}>{this.state.alert.message}</Alert>}
+            {!this.state.alert.stato &&
+            this.state.review.filter((elem) => elem.elementId === this.props.iD).length === 0 ? (
+              <h5>Nessun Commento</h5>
+            ) : (
+              <CommentList
+                review={this.state.review}
+                Reload={this.Reload}
+                select={this.state.select}
+                iD={this.props.iD}
+                addedDeleteComment={this.addedDeleteComment}
+              />
+            )}
 
-            <CommentList
-              review={this.state.review}
-              Reload={this.Reload}
-              select={this.state.select}
-              iD={this.props.iD}
-              addedDeleteComment={this.addedDeleteComment}
-            />
             <AddComment iD={this.props.iD} addedDeleteComment={this.addedDeleteComment} />
           </>
         )}
